@@ -25,6 +25,7 @@ HTML5新增的标签
 ES2015语法
 CSS兼容性
 前端框架 数据驱动的思想（MVVM)
+jQuery 
 Vue生态 Vue Vue-router Vuex等
 React生态 React Redux
 状态管理：Vuex 和Redux
