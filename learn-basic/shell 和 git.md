@@ -17,6 +17,7 @@ git commit -m 'first commit' -- 提交文件
 git remote add origin https://github.com/1366169599/xiangyuan.git -- 关联远程项目
 git push -u origin master -- 推送代码到远程仓库
 git pull origin master  -- 拉取代码到远程仓库
+git reset --hard head  -- 重置到上一次提交的地方
 
 //关联项目和分支后的简写
 git push
