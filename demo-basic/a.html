@@ -5,12 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin: 20px 5px;
+        }
+        .inline-element span{
+            background: #00ae66;
+            color: #fff;
+        }
+        .margin-auto {
+            width: 900px;
+            margin: 0 auto;
+            background: black;
+            color: #fff;
+        }
+        .max-width {
+            max-width: 900px;
+            background: #00ae66;
+            color: #fff;
+        }
+        .box {
+            width: 500px;
+            margin: 20px auto;
+            border: solid 1px #00ae66;
+
+        }
+        
+        .pos {
+            border: solid 1px #00ae66;
+            position: relative;
+        }
+        .pos .rect {
+            width: 40px;
+            height: 40px;
+            margin:10px 0;
+            background: #00ae66;
+        }
+        .pos .rect-relative {
+            position: relative;
+            left: 50px;
+        }
+        .pos .rect-absolute {
+            position: absolute;
+            left: 50px;
+            background: red;
+            top:100px;
+        }
+    </style>
 </head>
 <body>
- Hello!
- <script src='./a.js'></script>
- <script>
-     console.log('nihao')
- </script>
+<h1>没有布局</h1>
+<div>
+    如果你只想把所有内容都塞进一栏里，那么不用设置任何布局也是OK的。然而，如果用户把浏览器窗口调整的很大，这时阅读网页会非常难受：读完每一行之后，你的视觉焦点要从右到左移动一大段距离。试着调整下浏览器窗口大小你就明白我的意思了！
+</div>
+<h1>
+    display: block 或者 inline或者none
+</h1>
+<div>
+    <div>
+        div 是一个标准的块级元素。一个块级元素会新开始一行并且尽可能撑满容器。其他常用的块级元素包括 p 、 form 和HTML5中的新元素： header 、 footer 、 section 等等。
+    </div>
+    <div class='inline-element'>
+        <span>这是一个inline的元素</span> <span>这也是是一个inline的元素</span>
+    </div>
+    <div>dispaly 为none 就是隐藏的 看不到</div>
+</div>
+<h1>
+    margin: auto;
+</h1>
+<div>
+    <div class="margin-auto">
+        <ul>
+            <li>中国</li><li>中国</li><li>中国</li><li>中国</li><li>中国</li><li>中国</li>
+        </ul>
+    </div>
+</div>
+<h1>
+    max-width
+</h1>
+<div class='max-width'>
+    max-width 是最大宽度
+    在这种情况下使用 max-width 替代 width 可以使浏览器更好地处理小窗口的情况。这点在移动设备上显得尤为重要，调整下浏览器窗口大小检查下吧！
+    顺便提下， 所有的主流浏览器包括IE7+在内都支持 max-width ，所以放心大胆的用吧。
+</div>
+<h1>
+    盒模型
+</h1>
+<div>
+    <div class="box">
+        我是一个div 我也是一个盒子模型 我的宽度是500px
+    </div>
+</div>
+<h1>
+    position，这个属性主要是定位相关的
+</h1>
+<div class='pos'>
+    <div class="rect"></div>
+    <div class="rect rect-relative"></div>
+    <div class="rect rect-absolute"></div>
+</div>
+
+<script src='./a.js'></script>
 </body>
 </html>
