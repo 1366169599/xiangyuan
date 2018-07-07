@@ -59,3 +59,4 @@ var arr4 = arr.reduce((acc, cur) => {
 console.log(arr4)
 
 
+
