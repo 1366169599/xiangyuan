@@ -55,6 +55,18 @@
             background: red;
             top:100px;
         }
+        .fix-element {
+            position: fixed;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            bottom: 0;
+            background: #fff;
+            color:crimson;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 -5px 6px -6px #d1d1d1;
+        }
     </style>
 </head>
 <body>
@@ -107,6 +119,9 @@
     <div class="rect"></div>
     <div class="rect rect-relative"></div>
     <div class="rect rect-absolute"></div>
+</div>
+<div class="fix-element">
+    这是一个position为fixed的元素
 </div>
 
 <script src='./a.js'></script>
