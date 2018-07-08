@@ -51,9 +51,12 @@ charles抓包和代理
 数据结构：
 数组 链表 队列 树 堆 栈
 
+
+构建工具 webpack gulp 
+css sass less
+
+
 HTML语法：
-
-
 <!doctype html>
 <head> </head>
 <body></body>
@@ -66,33 +69,6 @@ HTML语法：
 内联js
 <script>
 </script>
-
-js注释：//
-或者
-/**
-    hello world
-**/
-html注释
-<!-- hello -->
-js语法举例
-js基本类型：number string boolean undefined null Object Symbol
-声明变量
-var foo = 'hello world'
-声明一个函数
-function foo() {
-    console.log('hello world')
-}
-调用一个函数
-foo()
-
-if() {
-} else if(){
-} else {
-}
-
-三元运算符：
-foo ? 'foo' : 'bar'
-表示如果foo成立的话（就是foo这个值是真）就返回'foo'，否则返回bar
 
 css基本语法
 width: 100px;
