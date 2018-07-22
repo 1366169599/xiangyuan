@@ -1,0 +1,12 @@
+.bili .banner {
+  color: red;
+  height: 100px;
+  background: black;
+}
+.bili .banner input {
+  height: 30px;
+  width: 100px;
+}
+.bili .top {
+  font-size: 16px;
+}

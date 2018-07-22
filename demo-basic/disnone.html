@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .banner-container {
+        background:green;
+    }
+    </style>
+</head>
+<body>
+    <div class='banner-container'>
+        <img class='banner' src="http://img12.360buyimg.com/da/jfs/t24496/255/985479156/100662/6f937488/5b4c01e4N5d707313.jpg" alt="">
+        <button onClick="closeW()">关闭</button>
+    </div>
+    <div class='banner-container'>
+        <img class='banner' src="http://img12.360buyimg.com/da/jfs/t24496/255/985479156/100662/6f937488/5b4c01e4N5d707313.jpg" alt="">
+        <button onClick="closeW1()">关闭</button>
+    </div>
+    <div>
+    </div>
+    <script>
+        function closeW() {
+            document.getElementsByClassName('banner-container')[0].style.display='none'
+        }
+        function closeW1() {
+            document.getElementsByClassName('banner-container')[1].style.display='none'
+        }
+
+        function ok() {
+            alert(123)
+        }
+    </script>
+</body>
+</html>

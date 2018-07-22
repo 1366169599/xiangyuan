@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="javascript:;">打开一个连接</a>
+    <a href="javascript:;">关闭窗口</a>
+    <script>
+    var a1=document.getElementsByTagName('a')[0];
+    var a2=document.getElementsByTagName('a')[1];
+    a1.onclick=function(){
+        var json = {
+            "name": "helloworld",
+            "fullscreen": "no",
+            "location": "no",
+            "width": "500",
+            "height": "100",
+            "top": "100px",
+            "left": "100px"
+        };
+        // window.open('http://www.baidu.com','_blank', json);
+
+        var testwindow = window.open("", "mywindow", "location=1,status=1,scrollbars=1,width=100,height=100");
+        testwindow.moveTo(0, 0);
+    }
+    a2.onclick=function(){
+        closewin()
+        
+    }
+
+    function closewin(){
+        if (navigator.userAgent.indexOf("Firefox") != -1 || navigator.userAgent.indexOf("Chrome") !=-1) {
+            window.location.href="about:blank";
+            window.close();
+        } else {
+            window.opener = null;
+            window.open("", "_self");
+            window.close();
+        }
+    }
+    </script>
+</body>
+</html>

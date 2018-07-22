@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+        .item{
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="phone-container">
+    </div>
+    
+    <script>
+        var a = {
+            "firstName": "John",
+            "lastName": "Smith",
+            "sex": "male",
+            "age": 25,
+            "address": {
+                "streetAddress": "21 2nd Street",
+                "city": "New York",
+                "state": "NY",
+                "postalCode": "10021"
+            },
+            "loupan": [
+                {
+                    name:'新靳1村',
+                    price:'10000',
+                },
+                {
+                    name:'新靳2村',
+                    price:'20000'
+                }
+            ],
+            "phoneNumber": [
+                {
+                    "type": "home",
+                    "number": "212 555-1234"
+                }
+            ]
+        }
+        // document.getElementsByClassName('name')[0].innerHTML = a.firstName;
+        // document.getElementsByClassName('name')[1].innerHTML = a.lastName;
+        var loupan = a.loupan;
+        var temp='';
+        for(var i =0; i<loupan.length;i++) {
+            temp = temp + '<div class="item">' + loupan[i].name +loupan[i].price+ '</div>'
+        }
+        console.log(temp)
+        document.getElementsByClassName('phone-container')[0].innerHTML = temp;
+    </script>
+</body>
+
+</html>
