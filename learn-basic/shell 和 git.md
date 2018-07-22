@@ -19,6 +19,9 @@ git push -u origin master -- 推送代码到远程仓库
 git pull origin master  -- 拉取代码到远程仓库
 git reset --hard head  -- 重置到上一次提交的地方
 
+git checkout -b branch-name origin/master  --从master新建分支
+git checkout branch-name  --切换分支
+
 //关联项目和分支后的简写
 git push
 git pull
