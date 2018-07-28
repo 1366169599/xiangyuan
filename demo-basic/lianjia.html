@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+
+        }
+        .container .loupan {
+            clear: both;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+    .topimg{
+        width: 30%;
+        height: 100px;
+        background: aqua;
+        float: left;
+    }
+    .toptext{
+        float: left;
+        width: 65%;
+        padding-left: 10px;
+        box-sizing: border-box;
+    }
+    .xiaoqu{
+        font-size: 16px;
+    }
+    .address{
+        font-size: 10px;
+    }
+    .tiaojian{
+        font-size: 8px;
+    }
+    .tiaojian span {
+        border: 1px solid red;
+        padding: 1px;
+        margin: 1px;
+        color: #9C9FA1;
+    }
+    .price{
+        font-size: 16px;
+    }
+    .price span{
+        margin: 3px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <div class='loupan'>
+            <div class="topimg"></div>
+            <div class="toptext">
+            <div class="xiaoqu">台湖银河湾</div> 
+            <div class="address"> 通州-通州其他</div> 
+            <div class="tiaojian"><span>住宅</span><span>车位充足</span><span>低密度</span></div>
+            <div class="price"><span>70800元/平</span><span>建面55~200m<sup>2</sup></span></div>
+            </div>
+        </div>
+    </div>
+    <script>
+    var a = {
+            "loupan": [
+                {
+                    name:'新靳1村',
+                    price:'10000',
+                    address:'黄河家园',
+                    condition:'低密度'
+                },
+                {
+                    name:'新靳2村',
+                    price:'20000',
+                    address:'李子园',
+                    condition:'高密度'
+                },
+            ],
+          
+        }
+        var loupan = a.loupan;
+        var temp='';
+        for(var i =0; i<loupan.length;i++) {
+            temp = temp + '<div class="loupan">'
+            temp = temp + "<div class='topimg'></div>";
+            temp = temp + '<div class="xiaoqu">' + loupan[i].name +"</div>";
+            temp = temp + '<div class="adress">' + loupan[i].address +"</div>";
+            temp = temp + '<div class="tiaojian">' + loupan[i].condition +"</div>";
+            temp = temp + '<div class="price">' + loupan[i].price +"</div>";
+            temp = temp + '</div>'
+        }
+        console.log(temp)
+        document.getElementsByClassName('container')[0].innerHTML = temp;
+    </script>
+</body>
+</html>
