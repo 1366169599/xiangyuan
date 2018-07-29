@@ -26,3 +26,17 @@ git checkout branch-name  --切换分支1
 git push
 git pull
 [Git远程操作详解](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
+
+
+
+npm:
+npm init
+
+npm install jquery --save
+npm install gulp --save-dev  //开发环境
+
+npm install --global gulp   //全局安装gulp
+
+
+gulp  <=>  gulp default
+
