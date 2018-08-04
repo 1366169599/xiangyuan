@@ -210,7 +210,7 @@
 
 // }
 // function sd(params) {
-      
+
 // }
 
 
@@ -247,3 +247,50 @@ test.say();
 
 
 // var a =new Object();
+
+
+
+function circle(radius) {
+          this.radius = radius;
+      // area method
+      this.area = function () {
+            console.log(123)
+            return Math.PI * this.radius * this.radius;
+      };
+      // perimeter method
+      this.perimeter = function () {
+            return 2 * Math.PI * this.radius;
+      };
+}
+var c = new circle(3);
+console.log('Area =', c.area().toFixed(2));
+// console.log('perimeter =', c.perimeter().toFixed(2));
+
+var a ={
+      name:'sdf'
+}
+
+function A() {
+      this.name = 'abc'
+      this.age = 'abc'
+      this.year = 'abc'
+      // this.radius = radius;
+      this.say = function() {
+            console.log(this.radius)
+      }
+}
+
+var s = new A(3);
+// console.log(s.radius)
+s.say()
+
+
+
+function a() {
+      var radius = 1;
+      function b() {
+            console.log(radius);
+      }
+      b();
+}
+// a();

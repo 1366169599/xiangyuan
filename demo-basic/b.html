@@ -1,56 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <!-- 格式 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
 
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+<head>
+    <meta charset=utf-8 />
+    <title>Display a random image.</title>
+    <style type="text/css">
+        body {
+            margin-top: 30px;
+        }
+        strong {
+            color: black;
+        }
+        .blue-container strong {
+            color: blue;
+        }
+    </style>
 </head>
 
 <body>
-    <input id='word' type="text">
-    <input type="button" value='确定' onclick="ok()">
-<script>
-    // var times = 0;
-    // while (times < 10) {
-    //     console.log(12345);
-    //     times++;
-    // }
-    // console.log("结束");
+    <div>
+        <button id="jsstyle" onclick="display_random_image();">Show Image</button>
+    </div>
+    <script>
+        function display_random_image() {
+            var theImages = [{
+                src: "http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg",
+                width: "240",
+                height: "160"
+            }, {
+                src: "http://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg",
+                width: "320",
+                height: "195"
+            }, {
+                src: "http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg",
+                width: "500",
+                height: "343"
+            }];
 
-    // var fun = function(a) {
-    //     console.log(a)
-    // }
-    // fun('hello')
-    // fun('word')
-    // var arr = [1, 2, 3, 4, 5]
-    // arr.forEach((item, index) => {
-    //     console.log(item, index)
-    // })
-    function ok(e) {
-        var value = document.getElementById("word").value
-        console.log(value)
-        if(value == 100) {
-            console.log('你答对了')
-        }else {
-            console.log('你答错了')
-        }
-    }
+            var preBuffer = [];
+            for (var i = 0, j = theImages.length; i < j; i++) {
+                let image = new Image();
+                image.src = theImages[i].src;
+                image.width = theImages[i].width;
+                image.height = theImages[i].height;
+                preBuffer.push(image);
+            }
 
-    // var arr = ['中国','韩国','日本'];
-    // for(var i=0;i< 3;i++) {
-    //     arr[i] = arr[i] + '人'
-    //     console.log(arr[i])
-    // }
-    // var arr=[1,2,3,4,5,6,7]
-    // for (var i=0;i<7;i++ ){
-    //     if (arr[i]==5){console.log('猜对了')}
-    //     else{console.log('猜错了')}
-    
-    // }
-</script>
-    
+            function getRandomInt(max) {
+                imn = Math.floor(Math.random() * max);
+                return preBuffer[imn];
+            }
+
+
+            // function deleteImage() {
+            //     var images = document.getElementsByTagName('img');
+            //     if (images.length > 0) {
+            //         document.body.removeChild(images[0]);
+            //     }
+            // }
+            // deleteImage();
+
+            var newImage = getRandomInt(preBuffer.length);
+            document.body.appendChild(new Comment('newImage'));
+
+        };
+    </script>
 </body>
+
 </html>
