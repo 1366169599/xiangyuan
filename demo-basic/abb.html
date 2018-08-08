@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            background: green;
+            height: 100px;
+        }
+
+        strong {
+            color: black;
+        }
+
+        .blue-container strong {
+            color: blue;
+        }
+
+        body div {
+            background: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container' onmouseover='test()'>
+        <div>
+            <strong>
+                sdjflsjdfl
+            </strong>
+        </div>
+    </div>
+    <script>
+
+
+        Object.objsize = function (Myobj) {
+            var osize = 0, key;
+            for (key in Myobj) {
+                if (Myobj.hasOwnProperty(key)) osize++;
+            }
+            return osize;
+        };
+
+        Object.prototype.age = 10;
+        
+        var student = {
+            name: "David Rayy",
+            sclass: "VI",
+            rollno: 12
+        };
+
+        var objsize = Object.objsize(student);
+        console.log('Size of the current object : ' + objsize);
+
+
+    </script>
+</body>
+
+</html>

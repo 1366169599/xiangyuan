@@ -40,3 +40,6 @@ npm install --global gulp   //全局安装gulp
 
 gulp  <=>  gulp default
 
+
+npm run start  //start 是在package.json文件中定义
+
