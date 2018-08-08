@@ -1,6 +1,5 @@
 module.exports = {
     entry: {
-        'a': ["./a.js", './b.js'],
         'b': "./b.js",
         'tudou': "./tudou.js",
 
