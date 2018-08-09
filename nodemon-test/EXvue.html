@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click='num=num+1'>点击</button>
+        <p>按键被点了{{num}}次</p>
+        <button @click='greet'>显示</button>
+        <p></p>
+        <button @click='say("Hi")'>Hi</button>
+        <button @click='say("What")'>What</button><br><br>
+        <input type="text" v-model='message'>
+        <p>输入的是:{{message}}</p>
+        <p>多个复选框:</p>
+        <input type="checkbox" value="葡萄" v-model='checkednNames'>
+        <label>葡萄</label>
+        <input type="checkbox" value="桃子" v-model='checkednNames'>
+        <label>桃子</label>
+        <input type="checkbox" value="苹果" v-model='checkednNames'>
+        <label>苹果</label>
+        <br>
+        选择的值为:{{checkedNames}}
+        <br><br>
+        <input type="radio" id="runoob" value="Runoob" v-model="picked">
+        <label for="runoob">Runoob</label>
+        <br>
+        <input type="radio" id="google" value="Google" v-model="picked">
+        <label for="google">Google</label>
+        <br>
+        <span>选中值为: {{ picked }}</span>
+    </div>
+
+
+    <script src='https://cdn.bootcss.com/vue/2.5.16/vue.js'></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                num: 0,
+                name: '天王盖地虎',
+                message:'小鸡炖蘑菇',
+                checkedNames:[],
+                picked:'',
+            },
+            methods: {
+                greet() {
+                    alert(this.name)
+                },
+                say(message){
+                    alert(message)
+                },
+            }
+        })
+        app.greet()
+    </script>
+</body>
+
+</html>
