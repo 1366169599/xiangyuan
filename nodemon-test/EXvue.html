@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .content {
+            background: yellow;
+            margin: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,11 +25,11 @@
         <input type="text" v-model='message'>
         <p>输入的是:{{message}}</p>
         <p>多个复选框:</p>
-        <input type="checkbox" value="葡萄" v-model='checkednNames'>
+        <input type="checkbox" value="葡萄" v-model='checkedNames'>
         <label>葡萄</label>
-        <input type="checkbox" value="桃子" v-model='checkednNames'>
+        <input type="checkbox" value="桃子" v-model='checkedNames'>
         <label>桃子</label>
-        <input type="checkbox" value="苹果" v-model='checkednNames'>
+        <input type="checkbox" value="苹果" v-model='checkedNames'>
         <label>苹果</label>
         <br>
         选择的值为:{{checkedNames}}
@@ -35,6 +41,13 @@
         <label for="google">Google</label>
         <br>
         <span>选中值为: {{ picked }}</span>
+        <div class='content' v-for='item in contents'>
+            色拉酱拉数据的分类
+            <div>{{item.name}}</div>
+            <div>jsdjls</div>
+            <div>jsdjls</div>
+            <div>jsdjls</div>
+        </div>
     </div>
 
 
@@ -48,6 +61,17 @@
                 message:'小鸡炖蘑菇',
                 checkedNames:[],
                 picked:'',
+                contents: [
+                    {
+                        name:'你好',
+                        age:10
+                    },
+                    {
+                        test:1,
+                        name:'你好sdf',
+                    },
+                    {}
+                ]
             },
             methods: {
                 greet() {
