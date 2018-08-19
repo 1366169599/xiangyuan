@@ -1,0 +1,11 @@
+#main {
+  width: 500px;
+  height: 600px;
+  background: greenyellow;
+}
+#main .btn {
+  color: red;
+}
+.container {
+  background: green;
+}

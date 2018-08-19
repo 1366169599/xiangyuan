@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            overflow: scroll;
+        }
+
+        .page-container {
+            position: absolute;
+            top: 0;
+            height: 300vh;
+            width: 100%;
+            transition: all 1s ease-out
+        }
+
+        .page1 {
+            height: 100vh;
+            background: red;
+        }
+
+        .page2 {
+            height: 100vh;
+            background: black;
+        }
+
+        .page3 {
+            height: 100vh;
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-container">
+            <div class="page1"></div>
+            <div class="page2"></div>
+            <div class="page3"></div>
+        </div>
+    </div>
+    <script>
+        var throttle = function (fn, interval) {
+
+            // 记录前一次时间
+            var last = +new Date()
+
+            var timerId = null
+            // 包装完后返回 闭包函数
+            return function () {
+                var current = +new Date()
+                var args = [].slice.call(arguments, 0)
+                var context = this
+                // 首先清除定时器
+                clearTimeout(timerId)
+                // current 与last 间隔大于interval 执行一次fn
+                // 在一个周期内 last相对固定 current一直再增加
+                // 这里可以保证调用很密集的情况下 current和last 必须是相隔interval 才会调用fn
+                if (current - last >= interval) {
+                    fn.apply(context, args)
+                    last = current
+                } else {
+                    // 如果没有大于间隔 添加定时器
+                    // 这可以保证 即使后面没有再次触发 fn也会在规定的interval后被调用
+                    timerId = setTimeout(function () {
+                        fn.apply(context, args)
+                        last = current
+                    }, interval)
+                }
+            }
+        }
+
+        let container = document.getElementsByClassName('container')[0]
+        let pageContainer = document.getElementsByClassName('page-container')[0]
+        pageContainer.style.top = 0 + 'px'
+        let lastScrollTop = 0;
+
+        container.onscroll = throttle(setting, 1000);
+        function setting() {
+            console.log(this.scrollTop)
+            if (this.scrollTop >= lastScrollTop) {
+                pageContainer.style.top = parseInt(pageContainer.style.top) - 100 + 'vh'
+                console.log(pageContainer.style.top)
+            } else {
+                pageContainer.style.top = parseInt(pageContainer.style.top) + 100 + 'vh'
+                console.log(pageContainer.style.top)
+            }
+            lastScrollTop = this.scrollTop;
+        }
+    </script>
+</body>
+
+</html>

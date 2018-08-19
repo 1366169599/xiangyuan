@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>点击按钮查看输入内容</p>
+    <button onclick="myFunction()">点击</button>
+    <p id="demo"></p>
+
+
+    <p>请输入1到10之间的数字</p>
+    <input type="text" id="num">
+    <button onclick="myFunction1()">确定</button>
+    <p id="demo1"></p>
+
+    <button onclick="myFunction2()">标题</button>
+    <p id="demo2"></p>
+
+
+    <script>
+        function myFunction() {
+            var x;
+            var person = prompt("请输入你的名字", "小明");
+            if (person != null && person != "") {
+                x = "你好 " + person + "! 今天感觉如何?";
+                document.getElementById("demo").innerHTML = x;
+            }
+        }
+        function myFunction1() {
+            var num;
+            var text;
+            num = document.getElementById('num').value;
+            if (num != null || num > 1 || num < 10) {
+                text = '输入正确';
+            } else {
+                text = '请重新输入';
+            }
+            document.getElementById('demo1').innerHTML = text;
+        }
+
+        function myFunction2() {
+            var x = '';
+            for (var i = 1; i <= 6; i++) {
+                x = x + '<h' + i + '>标题' + i + '</h' + i + '>'
+            }
+            document.getElementById('demo2').innerHTML = x;
+        }
+    </script>
+</body>
+
+</html>

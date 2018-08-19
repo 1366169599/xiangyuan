@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>长城</title>
+    <style>
+        .square {
+            width: 100px;
+            height: 1000px;
+            background: red;
+        }
+        .outter {
+            padding:100px;
+            height: 100px;
+            overflow: scroll;
+            background: green;
+        }
+        body {
+            height: 2000px;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="outter">
+        <div class='square'>
+            lklk;
+        </div>
+    </div>
+    <button>确定</button>
+    <script>
+        function sdf() {
+
+        }
+        var a = function() {
+
+        }
+         document.getElementsByClassName('outter')[0].onscroll = function() {
+            var height1 = document.getElementsByClassName('outter')[0].scrollTop;
+            console.log(height1);
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .picture-static {
+            display: flex;
+        }
+
+        .picture {
+            width: 25%;
+            /* flex-basis: 25%; */
+        }
+
+        .picture img {
+            width: 100%;
+        }
+
+        .pop-modal {
+            position: absolute;
+            width: 900px;
+            height: 500px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+        }
+
+        .pop-modal .big-pic {
+            position: relative;
+        }
+
+        .left {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            font-size: 50px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .right {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            font-size: 50px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .pop-modal .big-pic .big-item {
+            margin: 0 auto;
+        }
+
+        .pop-modal .big-pic .big-item img {
+            width: 100%;
+        }
+
+        .thumbnail-container {
+            display: flex;
+            margin: 0 auto;
+        }
+
+        .thumbnail-item {
+            flex-basis: 25%
+        }
+
+        .thumbnail-item img {
+            width: 100%;
+            opacity: 0.6;
+        }
+
+        .thumbnail-item img.active {
+            opacity: 1;
+        }
+
+        .mask {
+            display: none;
+            background: black;
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .close {
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 50px;
+            color: #fff;
+            font-size: 50px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="picture-static">
+        <div class="picture">
+            <img src="http://static.runoob.com/images/demo/demo1.jpg" onclick="showModal(0)">
+        </div>
+        <div class="picture">
+            <img src="http://static.runoob.com/images/demo/demo2.jpg" alt="" onclick="showModal(1)">
+        </div>
+        <div class="picture">
+            <img src="http://static.runoob.com/images/demo/demo3.jpg" alt="" onclick="showModal(2)">
+        </div>
+        <div class="picture">
+            <img src="http://static.runoob.com/images/demo/demo4.jpg" alt="" onclick="showModal(3)">
+        </div>
+    </div>
+
+    <div class="pop-modal" style='display: none'>
+        <div class="big-pic">
+            <div class="big-item hidden">
+                <img src="http://static.runoob.com/images/demo/demo1.jpg" alt="">
+            </div>
+            <div class="big-item hidden">
+                <img src="http://static.runoob.com/images/demo/demo2.jpg" alt="">
+            </div>
+            <div class="big-item ">
+                <img src="http://static.runoob.com/images/demo/demo3.jpg" alt="">
+            </div>
+            <div class="big-item hidden">
+                <img src="http://static.runoob.com/images/demo/demo4.jpg" alt="">
+            </div>
+            <span class='left' onclick="prePic()">
+                <</span>
+                    <span href="" class='right' onclick="nextPic()">></span>
+        </div>
+        <div class="thumbnail-container">
+            <div class="thumbnail-item">
+                <img class='thumbnail-item-img active' src="http://static.runoob.com/images/demo/demo1.jpg" alt="">
+            </div>
+            <div class="thumbnail-item">
+                <img class='thumbnail-item-img' src="http://static.runoob.com/images/demo/demo2.jpg" alt="">
+            </div>
+            <div class="thumbnail-item">
+                <img class='thumbnail-item-img' src="http://static.runoob.com/images/demo/demo3.jpg" alt="">
+            </div>
+            <div class="thumbnail-item">
+                <img class='thumbnail-item-img' src="http://static.runoob.com/images/demo/demo4.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="mask">
+        <div class='close' onclick='closeModal()'>&times;</div>
+    </div>
+
+
+    <script>
+        let modal = document.getElementsByClassName('pop-modal')[0];
+        let picStatic = document.getElementsByClassName('picture-static')[0];
+        let mask = document.getElementsByClassName('mask')[0];
+        let imgs = document.getElementsByClassName('thumbnail-item-img')
+        let bigs = document.getElementsByClassName('big-item')
+
+        let index = 0;
+
+        console.log(imgs)
+        console.log(modal.style)
+        function showModal(value) {
+            index = value;
+
+            showAndActive(index);
+
+            modal.style.display = 'block';
+            picStatic.style.display = 'none';
+            mask.style.display = 'block';
+        }
+
+        function nextPic() {
+            index++;
+            if (index > imgs.length - 1) {
+                index = 0;
+            }
+            showAndActive(index);
+        }
+        function prePic() {
+            index--;
+            if (index < 0) {
+                index = imgs.length - 1;
+            }
+            showAndActive(index);
+        }
+        function closeModal() {
+            modal.style.display = 'none'
+            picStatic.style.display = 'flex';
+            mask.style.display = 'none';
+        }
+
+        function showAndActive(index) {
+            //thumbnail
+            for (var i = 0; i < imgs.length; i++) {
+                imgs[i].classList.remove('active');
+            }
+            imgs[index].classList.add('active');
+
+            // //big-img
+            for (var i = 0; i < bigs.length; i++) {
+                if (!bigs[i].classList.contains('hidden')) {
+                    bigs[i].classList.add('hidden');
+                }
+            }
+            bigs[index].classList.remove('hidden');
+        }
+
+    </script>
+</body>
+
+</html>

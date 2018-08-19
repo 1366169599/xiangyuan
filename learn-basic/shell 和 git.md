@@ -20,9 +20,26 @@ git pull origin master  -- 拉取代码到远程仓库
 git reset --hard head  -- 重置到上一次提交的地方
 
 git checkout -b branch-name origin/master  --从master新建分支
-git checkout branch-name  --切换分支
+git checkout branch-name  --切换分支1
 
 //关联项目和分支后的简写
 git push
 git pull
 [Git远程操作详解](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
+
+
+
+npm:
+npm init
+
+npm install jquery --save
+npm install gulp --save-dev  //开发环境
+
+npm install --global gulp   //全局安装gulp
+
+
+gulp  <=>  gulp default
+
+
+npm run start  //start 是在package.json文件中定义
+

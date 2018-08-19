@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: green;
+        }
+        .bottom-tip {
+            cursor: pointer;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 300px;
+            height: 100px;
+            background: red;
+            transition: all 1s ease-in;
+        }
+        .collapse {
+            position: absolute;
+            right: 0;
+            width: 30px;
+            height: 100px;
+            background: black;
+
+        }
+        .left-self {
+            transform: translateX(-90%);
+        }
+    </style>
+</head>
+<body>
+    <div class="bottom-tip">
+        <div class="collapse" onclick="anime()"></div>
+    </div>
+    <script>
+        function anime() {
+            var a = document.getElementsByClassName('bottom-tip')[0];
+            if(a.classList.contains('left-self')) {
+                a.classList.remove('left-self');
+            }else {
+                a.classList.add('left-self');
+            }
+        }
+    </script>
+</body>
+</html>

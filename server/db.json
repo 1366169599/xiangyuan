@@ -1,0 +1,55 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "json-server",
+            "author": "typicode"
+        }
+    ],
+    "loupan": [
+        {
+            "name": "中粮国际",
+            "price": "150000",
+            "address": "天山西路"
+        },
+        {
+            "name": "中粮国际1",
+            "price": "150000",
+            "address": "天山西路"
+        },
+        {
+            "name": "中粮国际",
+            "price": "150000",
+            "address": "天山西路"
+        },
+        {
+            "name": "中粮国际1",
+            "price": "150000",
+            "address": "天山西路"
+        },
+        {
+            "name": "中粮国际",
+            "price": "150000",
+            "address": "天山西路",
+            "imgUrl":"www.baidu.com"
+        },
+        {
+            "name": "中粮国际1",
+            "price": "150000",
+            "address": "天山西路"
+        },
+        {
+            "name": "中粮国际",
+            "price": "150000",
+            "address": "天山西路"
+        },
+        {
+            "name": "中粮国际1",
+            "price": "150000",
+            "address": "天山西路"
+        }
+    ],
+    "profile": {
+        "name": "typicode"
+    }
+}

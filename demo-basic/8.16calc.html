@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    div{
+        width: 500px;
+        height: 600px;
+        background: gray;
+        box-sizing: border-box;
+    }
+    .num{
+        width: 100px;
+        height: 100px;
+        background: lightblue;
+        font-size: 60px;
+        line-height: 20px;
+        margin: 10px;
+    }
+    .count{
+        width: 100px;
+        height: 100px;
+        font-size: 60px;
+        line-height: 20px;
+        margin: 10px;
+        background:lightcoral;
+    }
+    .operator{
+        width: 100px;
+        height: 100px;
+        font-size: 60px;
+        line-height: 20px;
+        margin: 10px;
+        background: rgb(231, 73, 11);
+    }
+    .text{
+        width: 340px;
+        height: 100px;
+        margin: auto;
+        font-size: 50px;
+        margin: 10px;
+        text-align: right;
+        box-sizing: border-box;
+    }
+</style>
+<body>
+    <div>
+        <input class="count" type="button" value="AC" onclick="clear()">
+        <input class="text" type="text" id="text" disabled><br>
+        <input class="num" type="button" value="7" onclick="get(7)">
+        <input class="num" type="button" value="8" onclick="get(8)">
+        <input class="num" type="button" value="9" onclick="get(9)">
+        <input class="operator" type="button" value="+" onclick="get('+')"><br>
+        <input class="num" type="button" value="5" onclick="get(5)">
+        <input class="num" type="button" value="6" onclick="get(6)">
+        <input class="num" type="button" value="7" onclick="get(7)">
+        <input class="operator" type="button" value="-" onclick="get('-')"><br>
+        <input class="num" type="button" value="1" onclick="get(1)">
+        <input class="num" type="button" value="2" onclick="get(2)">
+        <input class="num" type="button" value="3" onclick="get(3)">
+        <input class="operator" type="button" value="*" onclick="get('*')"><br>
+        <input class="num" type="button" value="0" onclick="get(0)">
+        <input class="num" type="button" value="." onclick="get('.')">
+        <input class="operator" type="button" value="/" onclick="get('/')">
+        <input class="count" type="button" value="=" onclick="result()">
+    </div>
+    <script>
+    function clear(){
+document.getElementById('text').value="";
+    }
+    function get(value){
+        document.getElementById('text').value+=value;
+    }
+function result(){
+    var result;
+    result=document.getElementById('text').value;
+    document.getElementById('text').value=eval(result);
+}
+    </script>
+</body>
+</html>

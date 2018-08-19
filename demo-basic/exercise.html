@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .bgdemo{
+        width: 300px;
+        height: 300px;
+        background: red;
+        border-radius: 50%;
+    }
+    .bgdemo:hover{
+        width: 100px;
+        height: 100px;
+        transition: 2s height,2s 2s width;
+    }
+    p{
+        border: 2px solid;
+        border-bottom-color:cyan;
+        border-bottom-style:inset;
+        width: 500px;
+        height: 100px;
+        border-bottom-left-radius: 20%;
+        border-bottom-right-radius: 20%;
+        text-align: center;
+        font-size: 40px;
+        line-height: 100px;
+        margin: 0px;
+
+    }
+    .grad-color{
+         height: 200px; 
+         width: 500px;
+        /* background:-webkit-linear-gradient(red,yellow,green,blue);
+        background:-o-linear-gradient(red,yellow,green,blue);
+        background:-moz-linear-gradient(red,yellow,green,blue); */ 
+        background:linear-gradient(red,yellow,green,blue);
+    }
+    .grad-img{
+        height: 300px;
+        width: 300px;
+        background: radial-gradient(red,green,rgb(0, 4, 255))
+    }
+    .change-color{
+        width: 200px;
+        height: 200px;
+        background: red;
+    }
+    .change-color:hover{
+        animation: 3s rainbow forwards;
+        /* infinite：无限循环   forwards:动画停留结束状态 */
+    }
+    @keyframes rainbow{
+        20% { background:orange; }
+        50% { background:yellow; }
+        70% { background: green; }
+        100% { background:blue; }
+
+    }
+    .ratate{
+        width: 100px;
+        height: 20px;
+        background: greenyellow;
+        animation: spin 1s linear infinite;
+        animation-play-state: paused;
+    }
+    .ratate:hover{
+        animation-play-state: running;
+
+    }
+
+    </style>
+</head>
+<body>
+    <div class="bgdemo"></div>
+    <p>Hello Word</p>
+    <div class="grad-color"></div>
+    <div class="grad-img"></div>
+    <div class="change-color"></div>
+    <div class="ratate"></div>
+
+</body>
+</html>

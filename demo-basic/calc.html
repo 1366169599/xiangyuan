@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 400px;
+            height: 500px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            /* flex-direction: column; */
+        }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .row {
+            font-size: 0;
+        }
+
+        .result {
+            text-align: right;
+            background-color: #666;
+            font-size: 40px;
+            color: white;
+        }
+
+        .btn {
+            cursor: pointer;
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            display: inline-block;
+            text-align: center;
+            color: #333333;
+            background-color: #eee;
+            font-size: 46px;
+        }
+
+        .result {
+            height: 100px;
+        }
+
+        .btn-operator {
+            background-color: #669;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="result"></div>
+        <div class="row">
+            <div class="btn" onclick="input(1)">1</div>
+            <div class="btn" onclick="input(2)">2</div>
+            <div class="btn" onclick="input(3)">3</div>
+            <div class="btn btn-operator" onclick="input('+')">+</div>
+        </div>
+        <div class="row">
+            <div class="btn" onclick="input(4)">4</div>
+            <div class="btn" onclick="input(5)">5</div>
+            <div class="btn" onclick="input(6)">6</div>
+            <div class="btn btn-operator" onclick="input('-')">-</div>
+        </div>
+        <div class="row">
+            <div class="btn" onclick="input(7)">7</div>
+            <div class="btn" onclick="input(8)">8</div>
+            <div class="btn" onclick="input(9)">9</div>
+            <div class="btn btn-operator" onclick="input('*')">*</div>
+        </div>
+        <div class="row">
+            <div class="btn" onclick="input(0)">0</div>
+            <div class="btn" onclick="input('.')">.</div>
+            <div class="btn" onclick="clearInput()">AC</div>
+            <div class="btn btn-operator" onclick="calculate()">=</div>
+        </div>
+    </div>
+
+
+    <script>
+        const OP = ['+', '-', '*', '/'];
+        var shouldClear = true;
+        var result = '';
+        var inputs = [];
+
+        function updateDOM(result) {
+            document.getElementsByClassName('result')[0].innerHTML = result;
+        }
+        function input(value) {
+            if (shouldClear) {
+                clearInput()
+            }
+            shouldClear = false
+            const lastOne = inputs.length ? inputs[inputs.length - 1] : ''
+            if (OP.indexOf(lastOne) > -1 && OP.indexOf(value) > -1) {
+                return
+            }
+            inputs.push(value)
+            result = inputs.join('')
+            updateDOM(result)
+        };
+
+        function calculate() {
+            result = eval(result)
+            inputs = [result]
+            shouldClear = true
+            updateDOM(result ? result : '')
+        };
+
+        function clearInput() {
+            inputs = []
+            result = ''
+            updateDOM(result)
+        }
+    </script>
+
+</body>
+
+</html>

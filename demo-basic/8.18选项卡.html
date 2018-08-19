@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nva {
+            background: #f1f1f1;
+            font-size: 0;
+        }
+
+        .nva-but {
+            font-size: 30px;
+            padding: 5px;
+            border: none;
+            background: #f1f1f1;
+            outline: none;
+        }
+
+        .nva-but:hover {
+            background: rgb(134, 132, 132);
+        }
+
+        .nva-but:focus {
+            background: rgb(110, 106, 106);
+        }
+
+        .city {
+            padding: 6px 12px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nva">
+        <button class="nva-but" onclick="openCity(0)">成都</button>
+        <button class="nva-but" onclick="openCity(1)">银川</button>
+        <button class="nva-but" onclick="openCity(2)">南京</button>
+    </div>
+    <div class="city">
+        <h3>成都</h3>
+        <p>天府之国</p>
+    </div>
+    <div class="city">
+        <h3>银川</h3>
+        <p>塞上江南</p>
+    </div>
+    <div class="city">
+        <h3>南京</h3>
+        <p>六朝古都</p>
+    </div>
+    <script>
+    function openCity(x){
+        var citys=document.getElementsByClassName('city');
+        for(var i=0;i<citys.length;i++){
+            citys[i].style.display='none'
+        }
+       citys[x].style.display='block'
+    }
+    </script>
+</body>
+
+</html>

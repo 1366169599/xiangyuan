@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .content {
+            background: yellow;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <p>点击按钮检测数组的所有元素是否都大于输入框中指定的数字。</p>
+        <p>最小年龄:
+            <input type="number" id="ageToCheck" value="18" v-model='inputValue'>
+        </p>
+        <button @click="check()">点我</button>
+        <p>是否所有年龄都符号条件?
+            <span>{{result}}</span>
+        </p>
+    </div>
+
+
+    <script src='https://cdn.bootcss.com/vue/2.5.16/vue.js'></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                result: '',
+                inputValue:'',
+                ages: [32, 33, 12, 40]
+            },
+            methods: {
+                check() {
+                    this.result =  this.ages.every((item) => {
+                        return item > this.inputValue;
+                    })
+                    console.log(this.inputValue)
+                },
+
+            }
+        })
+    </script>
+</body>
+
+</html>
