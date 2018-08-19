@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .content {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .cd {
+            background: darkturquoise;
+        }
+
+        .nj {
+            background: darkseagreen;
+            display: none;
+        }
+
+        .yc {
+            display: none;
+            background: greenyellow;
+        }
+
+        .sh {
+            display: none;
+            background: lightpink;
+        }
+
+        .but-container {
+            font-size: 0;
+        }
+
+        .but {
+            width: 25%;
+            font-size: 50px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background: rgb(170, 168, 168);
+        }
+        .but:hover{
+            background: rgb(238, 218, 218)
+        }
+        /* .b1:focus{background: darkturquoise;}
+        .b2:focus{background: darkseagreen;}
+        .b3:focus{background: greenyellow;}
+        .b4:focus{background: lightpink;} */
+    </style>
+</head>
+
+<body>
+    <div class="content cd">
+        <h3>成都</h3>
+        <p>天府之国，吃货的天堂</p>
+    </div>
+    <div class="content nj">
+        <h3>南京</h3>
+        <p>六朝古都，文化的积淀</p>
+    </div>
+    <div class="content yc">
+        <h3>银川</h3>
+        <p>塞上江南，沙漠包围的绿洲</p>
+    </div>
+    <div class="content sh">
+        <h3>上海</h3>
+        <p>魅力之都，经济的聚集地</p>
+    </div>
+    <div class="but-container">
+        <button class="but b1" onclick="openCity(0)">成都</button>
+        <button class="but b2" onclick="openCity(1)">南京</button>
+        <button class="but b3" onclick="openCity(2)">银川</button>
+        <button class="but b4" onclick="openCity(3)">上海</button>
+    </div>
+    <script>
+        var citys = document.getElementsByClassName('content');
+        var buts = document.getElementsByClassName('but');
+        function openCity(x) {
+            for (var i = 0; i < citys.length; i++) {
+                citys[i].style.display = 'none'
+            }
+            citys[x].style.display='block';
+            for(var i=0;i<buts.length;i++){
+                buts[i].style.background='rgb(170, 168, 168)'
+            }
+            switch(x){
+                case 0:buts[0].style.background='darkturquoise';
+                break;
+                case 1:buts[1].style.background='darkseagreen';
+                break;
+                case 2:buts[2].style.background='greenyellow';
+                break;
+                case 3:buts[3].style.background='lightpink';
+                break;
+            }
+        }
+    </script>
+</body>
+
+</html>
