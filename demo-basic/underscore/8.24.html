@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "微软雅黑";
+        }
+
+        .btn {
+            padding: 6px 8px;
+            outline: none;
+            border: 1px solid #fff;
+            background: blueviolet;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #333;
+        }
+
+        .mask {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            left: 0;
+            top: 0;
+            display: none;
+
+        }
+
+        .mask_dialog {
+            width: 300px;
+            height: 300px;
+            background: #fff;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .item1 {
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333333;
+            display: inline-block;
+            width: 46px;
+            height: 46px;
+            border: 1px solid #333333;
+            text-align: center;
+            line-height: 46px;
+        }
+
+        a:hover {
+            background: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>
+        请为下面的DIV添加样式
+        <button class="btn" id="btn">按钮</button>
+    </h3>
+    <div id="div">
+
+    </div>
+
+    <div class="mask" id="mask">
+        <div class="mask_dialog">
+            <div class="item1">
+                <span>请选择颜色(px)</span>
+                <a href="javascript:;">红</a>
+                <a href="javascript:;">蓝</a>
+                <a href="javascript:;">绿</a>
+            </div>
+            <div class="item1">
+                <span>请选择宽度(px)</span>
+                <a href="javascript:;">200</a>
+                <a href="javascript:;">300</a>
+                <a href="javascript:;">400</a>
+            </div>
+            <div class="item1">
+                <span>请选择高度(px)</span>
+                <a href="javascript:;">200</a>
+                <a href="javascript:;">300</a>
+                <a href="javascript:;">400</a>
+            </div>
+
+            <div class="mask_footer">
+                <button class="btn" id="cancel">取消</button>
+                <button class="btn" id="comfire">确定</button>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        var arr = ["red", "blue", "green", "200", "300", "400", "200", "300", "400"]
+        var oBtn = document.getElementById("btn")
+        var oMask = document.getElementById("mask")
+        var oA = oMask.getElementsByTagName("a")
+        var oDiv = document.getElementById("div")
+        var oCancel = document.getElementById("cancel")
+        var oComfire = document.getElementById("comfire")
+
+
+        oBtn.onclick = function () {
+            oMask.style.display = "block"
+        }
+
+        for (var i = 0; i < oA.length; i++) {
+            oA[i].index = i
+
+            oA[i].onclick = function () {
+                //	alert(this.index)
+                if (this.index >= 0 && this.index <= 2) {
+                    oDiv.style.background = arr[this.index]
+                } else if (this.index >= 3 && this.index <= 5) {
+                    oDiv.style.width = arr[this.index] + "px"
+                } else {
+                    oDiv.style.height = arr[this.index] + "px"
+                }
+            }
+        }
+        oCancel.onclick = function () {
+            oDiv.style.background = "#fff"
+            oDiv.style.width = 100 + "px"
+            oDiv.style.height = 100 + "px"
+            oMask.style.display = "none"
+        }
+        oComfire.onclick = function () {
+            oMask.style.display = "none"
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
