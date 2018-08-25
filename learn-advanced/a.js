@@ -1,12 +1,11 @@
+function Person(name) {
+    this.name = name
+}
+function Student() {
 
-// var arr = [6, 4, 1, 8, 2, 11, 23];
+}
+// Student.prototype.say =function() {
 
-// var max = eval("Math.max(" + arr + ")");
-// console.log(max)
-
-var arr = [6, 4, 1, 8, 2, 11, 23];
-
-arr.sort(function(a,b){return a - b;});
-console.log(arr[arr.length - 1]);
-
-
+// }
+new Person('123'); 
+Student.prototype ={name:123}
