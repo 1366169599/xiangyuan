@@ -4,8 +4,6 @@ const {
 
 module.exports = {
     entry: {
-        'b': "./b.js",
-        'tudou': "./tudou.js",
         'main': './main.js',
     },
     output: {
