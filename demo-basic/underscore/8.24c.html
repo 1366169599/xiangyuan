@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            width: 500px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td {
+            height: 40px;
+            border: 1px solid #eee;
+        }
+
+        input {
+            width: 100px;
+            padding: 6px 8px;
+            border: 1px solid #ddd;
+            outline: none;
+            border-radius: 4px;
+            display: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .cancel {
+            display: none;
+        }
+
+        .comfire {
+            display: none;
+        }
+
+        .btn {
+            padding: 6px 8px;
+            outline: none;
+            background: #8A2BE2;
+            color: #fff;
+            border: none;
+        }
+    </style>
+</head>
+
+
+<body>
+    <table id="table">
+        <tr>
+            <td>ID</td>
+            <td>姓名</td>
+            <td>成绩</td>
+            <td>操作</td>
+        </tr>
+        <tr>
+            <td>
+                <span>1</span>
+                <input type="text" />
+            </td>
+            <td>
+                <span>咖啡</span>
+                <input type="text" />
+            </td>
+            <td>
+                <span>90</span>
+                <input type="text" />
+            </td>
+            <td>
+                <a href="javascript:;" class="change">修改</a>
+                <a href="javascript:;" class="cancel">取消</a>
+                <a href="javascript:;" class="comfire">确定</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>2</span>
+                <input type="text" />
+            </td>
+            <td>
+                <span>绿茶</span>
+                <input type="text" />
+            </td>
+            <td>
+                <span>90</span>
+                <input type="text" />
+            </td>
+            <td>
+                <a href="javascript:;" class="change">修改</a>
+                <a href="javascript:;" class="cancel">取消</a>
+                <a href="javascript:;" class="comfire">确定</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>3</span>
+                <input type="text" />
+            </td>
+            <td>
+                <span>奶茶</span>
+                <input type="text" />
+            </td>
+            <td>
+                <span>90</span>
+                <input type="text" />
+            </td>
+            <td>
+                <a href="javascript:;" class="change">修改</a>
+                <a href="javascript:;" class="cancel">取消</a>
+                <a href="javascript:;" class="comfire">确定</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>4</span>
+                <input type="text" />
+            </td>
+            <td>
+                <span>红茶</span>
+                <input type="text" />
+            </td>
+            <td>
+                <span>90</span>
+                <input type="text" />
+            </td>
+            <td>
+                <a href="javascript:;" class="change">修改</a>
+                <a href="javascript:;" class="cancel">取消</a>
+                <a href="javascript:;" class="comfire">确定</a>
+            </td>
+        </tr>
+
+
+    </table>
+    <button id="btn" class="btn">ID从大到小排序</button>
+
+
+    <script>
+        var table = document.getElementById("table")
+        var oTr = table.getElementsByTagName("tr")
+        var oBtn = document.getElementById("btn")
+        var arr = []
+        var onOff = true
+
+
+        for (var i = 1; i < oTr.length; i++) {
+            tab(i)
+            arr.push(oTr[i])
+        }
+        //	console.log(arr[0].getElementsByTagName("td")[0].innerText)
+
+
+        oBtn.onclick = function () {
+
+
+            if (onOff) {
+                for (var i = 0; i < arr.length; i++) {
+
+
+                    for (var j = i + 1; j < arr.length; j++) {
+                        if (parseFloat(arr[i].getElementsByTagName("td")[0].innerText) <= parseFloat(arr[j].getElementsByTagName("td")[0].innerText)) {
+                            var temp = arr[i]
+                            arr[i] = arr[j]
+                            arr[j] = temp
+                        }
+                    }
+
+
+                }
+
+
+                onOff = false
+            } else {
+                for (var i = 0; i < arr.length; i++) {
+
+
+                    for (var j = i + 1; j < arr.length; j++) {
+                        if (parseFloat(arr[i].getElementsByTagName("td")[0].innerText) >= parseFloat(arr[j].getElementsByTagName("td")[0].innerText)) {
+                            var temp = arr[i]
+                            arr[i] = arr[j]
+                            arr[j] = temp
+                        }
+                    }
+
+
+                }
+                onOff = true
+
+
+            }
+
+
+            //	console.log(arr)
+            for (var i = 0; i < arr.length; i++) {
+                table.appendChild(arr[i])
+            }
+
+
+        }
+
+
+        function tab(a) {
+            var oInput = oTr[a].getElementsByTagName("input")
+            var oSpan = oTr[a].getElementsByTagName("span")
+            var oA = oTr[a].getElementsByTagName("a")
+
+
+            oA[0].onclick = function () {
+                for (var i = 0; i < oSpan.length; i++) {
+                    oSpan[i].style.display = "none"
+                    oInput[i].style.display = "inline-block"
+                    oInput[i].value = oSpan[i].innerHTML
+                }
+
+
+                this.style.display = "none"
+                oA[1].style.display = "inline-block"
+                oA[2].style.display = "inline-block"
+            }
+            oA[1].onclick = function () {
+
+
+                for (var i = 0; i < oInput.length; i++) {
+                    oInput[i].style.display = "none"
+                    oSpan[i].style.display = "inline-block"
+                }
+
+
+                this.style.display = "none"
+                oA[2].style.display = "none"
+                oA[0].style.display = "inline-block"
+            }
+
+
+            oA[2].onclick = function () {
+                for (var i = 0; i < oSpan.length; i++) {
+                    oSpan[i].style.display = "inline-block"
+                    oInput[i].style.display = "none"
+                    oSpan[i].innerHTML = oInput[i].value
+                }
+
+
+                this.style.display = "none"
+                oA[0].style.display = "inline-block"
+                oA[1].style.display = "none"
+            }
+        }
+    </script>
+
+
+</body>
+
+
+</html>

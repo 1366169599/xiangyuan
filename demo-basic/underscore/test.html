@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        em {
+            font-style: normal;
+        }
+
+        ul li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <li>
+            <input type="button" value="-" />
+            <strong>0</strong>
+            <input type="button" value="+" /> 单价:
+            <em>10元</em>
+            总计:
+            <span>0元</span>
+        </li>
+
+        <li>
+            <input type="button" value="-" />
+            <strong>0</strong>
+            <input type="button" value="+" /> 单价:
+            <em>5元</em>
+            总计:
+            <span>0元</span>
+        </li>
+
+        <li>
+            <input type="button" value="-" />
+            <strong>0</strong>
+            <input type="button" value="+" /> 单价:
+            <em>6元</em>
+            总计:
+            <span>0元</span>
+        </li>
+
+        <li>
+            <input type="button" value="-" />
+            <strong>0</strong>
+            <input type="button" value="+" /> 单价:
+            <em>8元</em>
+            总计:
+            <span>0元</span>
+        </li>
+
+    </ul>
+    <p>商品数量总计:0件</p>
+    <p>共消费:0元</p>
+    <p>商品最贵的是:0元</p>
+    <script>
+        var oList = document.getElementById("list")
+        var aLi = oList.getElementsByTagName("li")
+        var oStrong = oList.getElementsByTagName("strong")
+        var oP = document.getElementsByTagName("p")
+        var oSpan = document.getElementsByTagName("span")
+
+
+        // for (var i = 0; i < aLi.length; i++) {
+        //     tab(i)
+        // }
+        tab(0)//1
+        tab(1)//2
+        tab(2)
+        tab(3)
+
+        function tab(index) {
+            var oInput = aLi[index].getElementsByTagName("input")
+            var prodNum = aLi[index].getElementsByTagName("strong")[0]
+            var prodPrice = aLi[index].getElementsByTagName("em")[0]
+            var prodSum = aLi[index].getElementsByTagName("span")[0]
+
+            var num = 0
+            //+
+            oInput[1].onclick = function () {
+                num++
+                prodNum.innerHTML = num
+                var price = parseFloat(prodPrice.innerHTML)
+                prodSum.innerHTML = num * price + "元"
+
+                var addShop = count()
+                //	console.log(addShop)
+                oP[0].innerHTML = "商品数量总计:" + addShop + "件"
+
+                // var all = all_price()
+
+                // oP[1].innerHTML = "共消费:" + all + "元"
+
+                // var max = compare()
+                //	console.log(max)
+                // oP[2].innerHTML = "商品最贵的是:" + max + "元"
+
+
+            }
+            //-
+            oInput[0].onclick = function () {
+                num--
+                if (num <= 0) {
+                    num = 0
+                }
+                oStrong.innerHTML = num
+                var oPrice = parseFloat(oEm.innerHTML)
+                oSpan.innerHTML = parseFloat(num) * oPrice + "元"
+
+                var addShop = count()
+                //	console.log(addShop)
+                oP[0].innerHTML = "商品数量总计:" + addShop + "件"
+
+                var all = all_price()
+
+                oP[1].innerHTML = "共消费:" + all + "元"
+
+            }
+        }
+
+        //商品数量求和
+        function count() {
+            var sum = 0
+
+            for (var i = 0; i < oStrong.length; i++) {
+                sum += parseFloat(oStrong[i].innerHTML)
+            }
+            //	console.log(sum)
+            return sum
+        }
+        //消费总计
+
+        function all_price() {
+            var sum = 0
+
+            for (var i = 0; i < oSpan.length; i++) {
+                sum += parseFloat(oSpan[i].innerHTML)
+            }
+            //	console.log(sum)
+            return sum
+
+
+        }
+
+        //比较最大值
+        function compare() {
+            var arr = []
+
+            for (var i = 0; i < oSpan.length; i++) {
+                arr.push(parseFloat(oSpan[i].innerHTML))
+            }
+
+            arr.sort(function (a, b) {
+                return b - a
+            })
+
+            return arr[0]
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
